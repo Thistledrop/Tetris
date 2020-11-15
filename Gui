@@ -1,0 +1,192 @@
+package tetris;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+public class Test extends JFrame 
+{
+	private JPanel menu;
+	private JPanel options;
+	private JPanel credits;
+	private JPanel game;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Test frame = new Test();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public Test() {
+		setBackground(Color.BLACK);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 400);
+		setResizable(false);
+		
+		game = new JPanel();
+		game.setBorder(new EmptyBorder(5, 5, 5, 5));
+		game.setLayout(new BorderLayout(0, 0));
+		game.setBounds(100, 100, 550, 600);
+		game.setBackground(Color.BLACK);
+		
+		menu = new JPanel();
+		menu.setBorder(new EmptyBorder(5, 5, 5, 5));
+		menu.setLayout(new BorderLayout(0, 0));
+		menu.setBackground(Color.BLACK);
+		
+		options = new JPanel();
+		options.setBorder(new EmptyBorder(5, 5, 5, 5));
+		options.setLayout(new BorderLayout(0, 0));
+		options.setBackground(Color.BLACK);
+		
+		credits = new JPanel();
+		credits.setBorder(new EmptyBorder(5, 5, 5, 5));
+		credits.setLayout(new BorderLayout(0, 0));
+		credits.setBackground(Color.BLACK);
+		
+		setContentPane(menu);
+		
+		JButton StartButton = new JButton("Start");
+		//StartButton.setBorder(null);
+		StartButton.setBounds(124, 132, 200, 70);
+		StartButton.setFocusPainted(false);
+		StartButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		StartButton.setContentAreaFilled(false);
+		StartButton.setForeground(Color.GREEN);
+		StartButton.setFont(new Font("Roboto", Font.BOLD, 20));
+		StartButton.addActionListener(new ActionListener()
+				{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				setContentPane(game);
+				resize(550, 600);
+				repaint();
+				revalidate();
+			}
+				});
+		menu.setLayout(null);
+		menu.add(StartButton);
+		
+		JButton OptionsButton = new JButton("Options");
+		//OptionsButton.setBorder(null);
+		OptionsButton.setBounds(124, 212, 200, 70);
+		OptionsButton.setFocusPainted(false);
+		OptionsButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		OptionsButton.setContentAreaFilled(false);
+		OptionsButton.setForeground(Color.GREEN);
+		OptionsButton.setFont(new Font("Roboto", Font.BOLD, 20));
+		OptionsButton.addActionListener(new ActionListener()
+				{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				setContentPane(options);
+				repaint();
+				revalidate();
+			}
+				});
+		menu.add(OptionsButton);
+		
+		JButton CreditsButton = new JButton("Credits");
+		//CreditsButton.setBorder(null);
+		CreditsButton.setBounds(124, 292, 200, 70);
+		CreditsButton.setForeground(Color.GREEN);
+		CreditsButton.setFont(new Font("Roboto", Font.BOLD, 20));
+		CreditsButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		CreditsButton.setFocusPainted(false);
+		CreditsButton.setContentAreaFilled(false);
+		CreditsButton.addActionListener(new ActionListener()
+				{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				setContentPane(credits);
+				repaint();
+				revalidate();
+			}
+				});
+		menu.add(CreditsButton);
+		
+		JButton Quit = new JButton("Back");
+		//Quit.setBorder(null);
+		Quit.setForeground(Color.GREEN);
+		Quit.setFont(new Font("Roboto", Font.BOLD, 20));
+		Quit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Quit.setFocusPainted(false);
+		Quit.setContentAreaFilled(false);
+		Quit.setBounds(124, 292, 200, 70);
+		Quit.addActionListener(new ActionListener()
+			{
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			setContentPane(menu);
+			resize(450, 400);
+			repaint();
+			revalidate();
+		}
+			});
+		game.add(Quit);
+		
+		JButton OBack = new JButton("Back");
+		//OBack.setBorder(null);
+		OBack.setForeground(Color.GREEN);
+		OBack.setFont(new Font("Roboto", Font.BOLD, 20));
+		OBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		OBack.setFocusPainted(false);
+		OBack.setContentAreaFilled(false);
+		OBack.setBounds(250, 380, 200, 70);
+		OBack.addActionListener(new ActionListener()
+			{
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			setContentPane(menu);
+			resize(450, 400);
+			repaint();
+			revalidate();
+		}
+			});
+		options.add(OBack);
+		
+		JButton CBack = new JButton("Back");
+		//CBack.setBorder(null);
+		CBack.setForeground(Color.GREEN);
+		CBack.setFont(new Font("Roboto", Font.BOLD, 20));
+		CBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		CBack.setFocusPainted(false);
+		CBack.setContentAreaFilled(false);
+		CBack.setBounds(124, 292, 200, 70);
+		CBack.addActionListener(new ActionListener()
+			{
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			setContentPane(menu);
+			resize(450, 400);
+			repaint();
+			revalidate();
+		}
+			});
+		credits.add(CBack);
+	}
+
+}
